@@ -1,0 +1,4 @@
+A website project 
+of posts and comments Built using Html ,Css ,Javascript , JQuery The website was built according to the mvc (model view controller )
+I would appreciate comments and reactions about the project
+I hope you enjoy watching it
