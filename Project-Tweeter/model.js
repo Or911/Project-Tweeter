@@ -1,3 +1,16 @@
+const ifTextIsEmpty = function (input) {
+  if (!input) {
+    return true;
+  }
+};
+const findPostToRemove = function (postID, postsList) {
+  for (let indexPost in postsList) {
+    if (postsList[indexPost].id == postID) {
+      return indexPost;
+    }
+  }
+};
+
 const Tweeter = function () {
   const _posts = [
     {
@@ -31,41 +44,39 @@ const Tweeter = function () {
   };
 
   const addPost = function (text) {
-    if (!text) {
+    if (ifTextIsEmpty(text)) {
       return;
     }
     _postIdCounter += 1;
-    _posts.push({ text: text, id: `p${_postIdCounter}`, comments: [] });
+    let newPost = { text: text, id: `p${_postIdCounter}`, comments: [] };
+    _posts.push(newPost);
   };
 
   const removePost = function (postID) {
-    for (let index in _posts) {
-      if (_posts[index].id == postID) {
-        _posts.splice(index, 1);
-      }
-    }
+    let index = findPostToRemove(postID, _posts);
+    _posts.splice(index, 1);
   };
 
   const addComment = function (comment, postID) {
-    if (!comment) {
+    if (ifTextIsEmpty(comment)) {
       return;
     }
     for (let post of _posts) {
       if (post.id == postID) {
         commentIdCounter++;
-        post.comments.push({ id: `c${commentIdCounter}`, text: comment });
+        let createComment = { id: `c${commentIdCounter}`, text: comment };
+        post.comments.push(createComment);
       }
     }
   };
 
   const removeComment = function (postID, commentID) {
-    for (let post of _posts) {
-      if (post.id == postID) {
-        for (let index in post.comments) {
-          if (post.comments[index].id == commentID) {
-            post.comments.splice(index, 1);
-          }
-        }
+    let indexPost = findPostToRemove(postID, _posts);
+
+    let comments = _posts[indexPost].comments;
+    for (let indexComment in comments) {
+      if (comments[indexComment].id == commentID) {
+        _posts[indexPost].comments.splice(indexComment, 1);
       }
     }
   };
