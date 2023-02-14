@@ -72,7 +72,7 @@ const Tweeter = function () {
 
   const removeComment = function (postID, commentID) {
     let indexPost = findPostToRemove(postID, _posts);
-
+//add a test for -1 
     let comments = _posts[indexPost].comments;
     for (let indexComment in comments) {
       if (comments[indexComment].id == commentID) {

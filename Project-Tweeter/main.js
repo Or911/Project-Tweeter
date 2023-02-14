@@ -27,7 +27,7 @@ $("#posts").on("click","button", function (){
     
 $("#posts").on("click",".delete-comment", function (){
    let idOfPostToRemoveComment =  $(this).closest(".post").attr("id")
-   let idOfCommentToRemove = $(this).closest(".comments").attr("id")
+   let idOfCommentToRemove = $(this).closest(".comments").data("id")
    tweeter.removeComment(idOfPostToRemoveComment , idOfCommentToRemove )
    renderer.renderPosts(tweeter.getPosts())
 })
