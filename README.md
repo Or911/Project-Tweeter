@@ -11,6 +11,6 @@ ___
 
 ### Contact me 
 
-[**linkedin**](https://www.linkedin.com/in/or-hadad-a86648247/)
+- [**linkedin**](https://www.linkedin.com/in/or-hadad-a86648247/)
 
-**mail** : orhadad19@gmail.com
+- **mail** : orhadad19@gmail.com
